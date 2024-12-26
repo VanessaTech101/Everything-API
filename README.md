@@ -11,5 +11,8 @@
 
 🔍 Note: This collection requires Postman to view and interact with the API requests.
 
+Restful Booker API Documentation: 
+https://restful-booker.herokuapp.com/apidoc/index.html
+
 PS: If you are/ were one of my students, feel free to reach out to me via my email. I will get back to you in 24 hours. 
 Cheers, darlings :) 
