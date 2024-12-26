@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "027e959a-a54c-4d76-a1cc-b0cbe70c85f3",
+		"name": "Data Driven Testing of Login Page",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37062756",
+		"_collection_link": "https://blue-crater-148528.postman.co/workspace/New-Team-Workspace~a5668b75-92c9-4a4c-80a8-57b854010aa4/collection/37062756-027e959a-a54c-4d76-a1cc-b0cbe70c85f3?action=share&source=collection_link&creator=37062756"
+	},
+	"item": [
+		{
+			"name": "User Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Updated the test to verify the email in the response\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should contain createdAt Key\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"createdAt\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify that the response ID in not null/ response email is what we have sent\",function(){\r",
+							"   console.log(pm.iterationData.get(\"email\"));\r",
+							"   //This data/ value comes from CSV file --> Expected Data\r",
+							"   var response = pm.response.json();\r",
+							"   var emailFromResponse = require[\"email\"];\r",
+							"   //This data is from response body --> Actual Data \r",
+							"   pm.expect(emailFromResponse).to.eql(pm.iterationData.get(\"email\"));\r",
+							"\r",
+							"   //In real life email and password is not given but just the ID\r",
+							"   //pm.expect(require[\"id\"]).to.be.exist; \r",
+							"   //ie just checking ID not null \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    //\"email\": \"vanessa@gmail.com\",\r\n    //--> this was sent in post req initially \r\n    \"email\":\"{{email}}\",\r\n    //\"password\":\"12345\" \r\n    //--> this was sent in post req initially \r\n    \"password\": \"{{password}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/register/preprod",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"register",
+						"preprod"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
