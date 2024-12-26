@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "ec98d602-2541-4be3-8f99-0d434bf6ab52",
+		"name": "Node.js libraries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37062756",
+		"_collection_link": "https://blue-crater-148528.postman.co/workspace/New-Team-Workspace~a5668b75-92c9-4a4c-80a8-57b854010aa4/collection/37062756-ec98d602-2541-4be3-8f99-0d434bf6ab52?action=share&source=collection_link&creator=37062756"
+	},
+	"item": [
+		{
+			"name": "crypto-js",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(require('crypto-js').SHA256 (\"some string\").toString());\r",
+							"//This is a third party library like ChaiJS \r",
+							"//check the console to see what exactly happens - post sending request \r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.thetestingacademy.com/s/store/courses/description/Automation-Tester-Blueprint ",
+					"protocol": "https",
+					"host": [
+						"www",
+						"thetestingacademy",
+						"com"
+					],
+					"path": [
+						"s",
+						"store",
+						"courses",
+						"description",
+						"Automation-Tester-Blueprint "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "moment.js",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const moment = require('moment');\r",
+							"var mm = moment('2022-11-20').add(1, 'days').format('MM.DD.YYYY')\r",
+							"console.log(mm);\r",
+							"\r",
+							"//Check console. It displays the day after ie 11/21/2022 "
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.thetestingacademy.com/s/store/courses/description/Automation-Tester-Blueprint ",
+					"protocol": "https",
+					"host": [
+						"www",
+						"thetestingacademy",
+						"com"
+					],
+					"path": [
+						"s",
+						"store",
+						"courses",
+						"description",
+						"Automation-Tester-Blueprint "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch h3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var reponseData = pm.response.text();\r",
+							"console.log(reponseData);\r",
+							"var parsedData = cheerio(pm.response.text());\r",
+							"console.log((parsedData.find(\"h3\")));\r",
+							"\r",
+							"//It gets the response from the API as plain text, then prints this text to the console.\r",
+							"//Cheerio parses the text like HTML and looks for all <h3> elements in the HTML.\r",
+							"//Then it prints the found <h3> elements to the console. Can also be tried with h1, h2 and so forth \r",
+							"//These are rarely used. Another one is csv parse library. \r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.thetestingacademy.com/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"thetestingacademy",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
