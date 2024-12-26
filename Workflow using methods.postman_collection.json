@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "4e5f86aa-3d89-4b10-8ed7-8dea3d05060d",
+		"name": "Workflow using methods",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37062756",
+		"_collection_link": "https://blue-crater-148528.postman.co/workspace/New-Team-Workspace~a5668b75-92c9-4a4c-80a8-57b854010aa4/collection/37062756-4e5f86aa-3d89-4b10-8ed7-8dea3d05060d?action=share&source=collection_link&creator=37062756"
+	},
+	"item": [
+		{
+			"name": "1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"var id = pm.response.json().id;\r",
+							"if(id == 2)\r",
+							"{\r",
+							"postman.setNextRequest(\"3\")\r",
+							"    //via this, 2 gets skipped\r",
+							"}else{\r",
+							"    postman.setNextRequest(null)\r",
+							"    //flow will stop with this\r",
+							"}\r",
+							"});\r",
+							"\r",
+							"//pm.test(\"Body matches string\", function () {\r",
+							"//var id = pm.response.json().id;\r",
+							"//if(id != 2)\r",
+							"//{\r",
+							" //   postman.setNextRequest(null)\r",
+							"    //flow will stop with this\r",
+							"//}\r",
+							"//});\r",
+							"//Example for how to stop execution when id is NOT 2 \r",
+							"\r",
+							"//pm.test(\"Body matches string\", function () {\r",
+							"  // var id = pm.response.json().id;\r",
+							"   //var status = pm.response.status;\r",
+							"   //if (status != 200){postman.setNextRequest(null);}\r",
+							"   //if(id==2){\r",
+							"    //postman.setNextRequest(null);\r",
+							"   //}\r",
+							"//});\r",
+							"//here if status code is not 200. then execution stops \r",
+							"// = is assignment operator. == is comparison operator "
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/2",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/2",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/2",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
