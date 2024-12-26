@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "d26077dd-d916-4b0a-b4de-9577bfd23804",
+		"name": "Mock Server #1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37062756",
+		"_collection_link": "https://blue-crater-148528.postman.co/workspace/New-Team-Workspace~a5668b75-92c9-4a4c-80a8-57b854010aa4/collection/37062756-d26077dd-d916-4b0a-b4de-9577bfd23804?action=share&source=collection_link&creator=37062756"
+	},
+	"item": [
+		{
+			"name": "Get User 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://93005c2b-6422-4da3-b6c8-3cd388412f09.mock.pstmn.io/user/1",
+					"protocol": "https",
+					"host": [
+						"93005c2b-6422-4da3-b6c8-3cd388412f09",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://93005c2b-6422-4da3-b6c8-3cd388412f09.mock.pstmn.io/user/1",
+							"protocol": "https",
+							"host": [
+								"93005c2b-6422-4da3-b6c8-3cd388412f09",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Aug 2024 16:53:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "164"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=c6891b6c2d8cf6e6"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=859da4481dec7ab7"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1724518470"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\":1,\n    \"name\":\"Pramod\",\n    \"age\":32\n    }"
+				},
+				{
+					"name": "Post User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://93005c2b-6422-4da3-b6c8-3cd388412f09.mock.pstmn.io/user",
+							"protocol": "https",
+							"host": [
+								"93005c2b-6422-4da3-b6c8-3cd388412f09",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Aug 2024 21:21:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=c6891b6c2d8cf6e6"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=859da4481dec7ab7"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1724518470"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": {{$randomInt}},\n    \"name\": \"{{$randomFirstName}}\",\n    \"age\": 32\n}"
+				}
+			]
+		},
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://93005c2b-6422-4da3-b6c8-3cd388412f09.mock.pstmn.io/user",
+					"protocol": "https",
+					"host": [
+						"93005c2b-6422-4da3-b6c8-3cd388412f09",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
